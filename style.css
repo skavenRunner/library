@@ -1,0 +1,55 @@
+html {
+    background-color: #E07214;
+}
+
+h1 {
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bolder;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.book {
+    flex: 1 0 500px;
+    border: 5px solid #AD5910;
+    margin: 50px;
+    text-align: center;
+    background-color: #E69B5A;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    max-width: 800px;
+}
+
+.title {
+    font-size: x-large;
+}
+
+.author {
+    font-size: large;
+}
+
+.pages {
+    font-size: medium;
+}
+
+.read {
+    font-size: large;
+}
+
+.title-container, .author-container, .pages-container, .read-container {
+    display:flex;
+}
+
+.text-before-title, .text-before-author, .text-before-pages, .text-before-read {
+    width: 30%;
+}
+
+.title, .author, .pages, .read {
+    width: 70%;
+}
