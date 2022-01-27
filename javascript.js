@@ -20,14 +20,18 @@ function addBookToLibrary(title, author, pages, read) {
 function updateBookDisplay() {
     const grid = document.querySelector(".grid");
     const sampleBook = document.querySelector(".book.sample");
+    let gridChildren = grid.children;
 
-    while (grid.children.length > 1) {
-        grid.removeChild(grid.lastChild);
-    }
+    [...gridChildren].forEach(child => {
+        if ([...child.classList].includes("real-book")) {
+            child.remove();
+        }
+    });
 
     myLibrary.forEach(book => {
         const currentBook = sampleBook.cloneNode(true);
         currentBook.classList.remove("sample");
+        currentBook.classList.add("real-book");
         const title = currentBook.querySelector(".title");
         const author = currentBook.querySelector(".author");
         const pages = currentBook.querySelector(".pages");
