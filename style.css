@@ -53,3 +53,7 @@ h1 {
 .title, .author, .pages, .read {
     width: 70%;
 }
+
+.book.sample {
+    /* display: none; */
+}
