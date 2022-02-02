@@ -54,6 +54,7 @@ newBookButton.addEventListener("click", () => {
     const addBookButton = document.querySelector(".book.add");
     addBookButton.classList.add("invisible");
     const bookFormSample = document.querySelector(".book.form-sample");
+    bookFormSample.reset();
     
     bookFormSample.classList.remove("form-sample");
     bookFormSample.classList.add("current-form");
@@ -65,7 +66,7 @@ cancelForm.addEventListener("click", closeForm);
 function closeForm() {
     const currentForm = document.querySelector(".current-form");
     currentForm.classList.add("form-sample");
-    currentForm.classList.remove("current-form")
+    currentForm.classList.remove("current-form");
 
     const addBookButton = document.querySelector(".book.add");
     addBookButton.classList.remove("invisible");
