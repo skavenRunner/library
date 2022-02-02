@@ -11,6 +11,8 @@ h1 {
 .grid {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
 .book {
@@ -54,6 +56,32 @@ h1 {
     width: 70%;
 }
 
-.book.sample {
-    /* display: none; */
+
+
+.add-book-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px double green;
+    border-radius: 25%;
+    padding: 2px;
+    background-color: #E69B5A;
+
+}
+
+.add-book-button:hover {
+    background-color: #c9884f;
+}
+
+.add-book-button:active {
+    background-color: #a67041;
+}
+
+.add {
+    display: flex;
+    align-items: center;
+}
+
+.book.sample, .book.form-sample, .invisible {
+    display: none;
 }

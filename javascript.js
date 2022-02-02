@@ -42,9 +42,49 @@ function updateBookDisplay() {
         pages.textContent = book.pages;
         read.textContent = book.read;
 
-
-        grid.appendChild(currentBook);
+        const addBook = document.querySelector(".book.add");
+        grid.insertBefore(currentBook, addBook);
     });
     
     
 }
+
+const newBookButton = document.querySelector(".add-book-button");
+newBookButton.addEventListener("click", () => {
+    const addBookButton = document.querySelector(".book.add");
+    addBookButton.classList.add("invisible");
+    const bookFormSample = document.querySelector(".book.form-sample");
+    
+    bookFormSample.classList.remove("form-sample");
+    bookFormSample.classList.add("current-form");
+});
+
+const cancelForm = document.querySelector(".cancel-form");
+cancelForm.addEventListener("click", closeForm);
+
+function closeForm() {
+    const currentForm = document.querySelector(".current-form");
+    currentForm.classList.add("form-sample");
+    currentForm.classList.remove("current-form")
+
+    const addBookButton = document.querySelector(".book.add");
+    addBookButton.classList.remove("invisible");
+
+};
+
+const submitForm = document.querySelector(".submit-form");
+submitForm.addEventListener("click", () => {
+    const title = document.querySelector("#title-book-add");
+    const author = document.querySelector("#author-book-add");
+    const pages = document.querySelector("#pages-book-add");
+    const notRead = document.querySelector("#book-not-read");
+    const read = document.querySelector("#book-read");
+
+    let readStatus = false;
+
+    if (read.checked > notRead.checked) readStatus = "Read";
+    else readStatus = "Not yet read";
+
+    addBookToLibrary(title.value, author.value, pages.value, readStatus);
+    closeForm();
+})

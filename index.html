@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <link href="reset.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
     <meta charset="UTF-8">
@@ -27,6 +29,37 @@
             <div class="text-before-read">Status:</div>
             <div class="read">not yet read</div>
         </div>
+    </div>
+
+    <div class="book add">
+        <button type="button" name="add-book" class="add-book-button">
+        <span class="material-icons plus">add_circle</span>
+        <div class="text-after-plus">Add book</div>
+        </button>
+    </div>
+
+    <form class="book form-sample">
+        <div class="title-container">
+            <label for="title-book-add" class="text-before-title">Title:</label>
+            <input type="text" name="title-book-add" id="title-book-add" class="title"></input>
+        </div>
+        <div class="author-container">
+            <label for="author-book-add" class="text-before-author">Author:</label>
+            <input type="text" name="author-book-add" id="author-book-add" class="author"></input>
+        </div>
+        <div class="pages-container">
+            <label for="pages-book-add" class="text-before-pages">Pages:</label>
+            <input type="text" name="pages-book-add" id="pages-book-add" class="pages"></input>
+        </div>
+        <div class="read-container">
+            <label for="read-book-add" class="text-before-read">Status:</label>
+            <input type="radio" name="read-book-add" id="book-not-read" class="read">not yet read</input>
+            <input type="radio" name="read-book-add" id="book-read" class="read">read</input>
+        </div>
+        <div class="options-container">
+            <button type="button" name="submit-form" class="submit-form">Submit Book</button>
+            <button type="button" name="cancel-form" class="cancel-form">Cancel</button>
+        </form>
     </div>
 </div>
     
