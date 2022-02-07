@@ -109,6 +109,11 @@ function closeForm() {
     const addBookButton = document.querySelector(".book.add");
     addBookButton.classList.remove("invisible");
 
+    let inputs = document.querySelectorAll(".form-sample input[type=text]");
+    inputs.forEach((input) => {
+        input.classList.remove("invalid");
+        input.classList.remove("valid");
+    })
 };
 
 const submitForm = document.querySelector(".submit-form");
@@ -119,11 +124,44 @@ submitForm.addEventListener("click", () => {
     const notRead = document.querySelector("#book-not-read");
     const read = document.querySelector("#book-read");
 
-    let readStatus = false;
 
-    if (read.checked > notRead.checked) readStatus = "Read";
-    else readStatus = "Not yet read";
+    if ([...title.classList].includes("valid") &&
+    [...author.classList].includes("valid") &&
+    [...pages.classList].includes("valid") &&
+    (read.checked === true || notRead.checked === true)) {
 
-    addBookToLibrary(title.value, author.value, pages.value, readStatus);
-    closeForm();
+        let readStatus = false;
+        if (read.checked > notRead.checked) readStatus = "Read";
+        else readStatus = "Not read yet";
+
+        addBookToLibrary(title.value, author.value, pages.value, readStatus);
+        closeForm();
+    }
 });
+
+const inputsFormSample = document.querySelectorAll(".form-sample input[type=text]");
+inputsFormSample.forEach((input) => {
+    input.addEventListener("keyup", (e) => {
+        let fieldName = e.target.id;
+        let input = e.target.value;
+        
+        if (regexValidate(fieldName, input) === true) {
+            e.target.classList.remove("invalid");
+            e.target.classList.add("valid");
+        } else {
+            e.target.classList.remove("valid");
+            e.target.classList.add("invalid");
+        };
+    });
+});
+
+function regexValidate(fieldName, input) {
+    const patterns = {
+        ["title-book-add"]: /^([^\W\d]|\s)+$/,
+        ["author-book-add"]: /^([^\W\d]|\s)+$/,
+        ["pages-book-add"]: /^\d+$/
+    }
+    
+    if (patterns[fieldName].test(input)) return true
+    else return false;
+};
