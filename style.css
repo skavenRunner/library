@@ -53,10 +53,21 @@ h1 {
     width: 30%;
 }
 
-.title, .author, .pages, .read {
+.title-centerer, .author-centerer, .pages-centerer, .read-centerer {
+    display: flex;
+    width: 70%;
+    justify-content: center;
+    align-items: center;
+}
+
+.title, .author, .pages, .read-radio-container {
     width: 70%;
 }
 
+.read-radio-container {
+    display: flex;
+    justify-content: space-around;
+}
 
 
 .add-book-button {
@@ -101,4 +112,12 @@ h1 {
 
 .book.sample, .book.form-sample, .invisible {
     display: none;
+}
+
+.read.affirmative {
+    background-color: green;
+}
+
+.read.negative {
+    background-color: red;
 }

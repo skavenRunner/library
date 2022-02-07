@@ -15,7 +15,9 @@
     <div class="book sample" data-id="0">
         <div class="title-container">
             <div class="text-before-title">Title:</div>
-            <div class="title">Test</div>
+            <div class="title-centerer">
+                <div class="title">Test</div>
+            </div>
         </div>
         <button class="delete-book">
             <span class="material-icons">
@@ -24,15 +26,21 @@
         </button>
         <div class="author-container">
             <div class="text-before-author">Author:</div>
-            <div class="author">tester testonium</div>
+            <div class="author-centerer">
+                <div class="author">tester testonium</div>
+            </div>
         </div>
         <div class="pages-container">
             <div class="text-before-pages">Pages:</div>
-            <div class="pages">123</div>
+            <div class="pages-centerer">
+                <div class="pages">123</div>
+            </div>
         </div>
         <div class="read-container">
             <div class="text-before-read">Status:</div>
-            <div class="read">not yet read</div>
+            <div class="read-centerer">
+                <button class="read">not yet read</button>
+            </div>
         </div>
     </div>
 
@@ -46,20 +54,39 @@
     <form class="book form-sample">
         <div class="title-container">
             <label for="title-book-add" class="text-before-title">Title:</label>
-            <input type="text" name="title-book-add" id="title-book-add" class="title"></input>
+            <div class="title-centerer">
+                <input type="text" name="title-book-add" id="title-book-add" class="title">
+                </input>
+            </div>
         </div>
         <div class="author-container">
             <label for="author-book-add" class="text-before-author">Author:</label>
-            <input type="text" name="author-book-add" id="author-book-add" class="author"></input>
+            <div class="author-centerer">
+                <input type="text" name="author-book-add" id="author-book-add" class="author">
+                </input>
+            </div>
         </div>
         <div class="pages-container">
             <label for="pages-book-add" class="text-before-pages">Pages:</label>
-            <input type="text" name="pages-book-add" id="pages-book-add" class="pages"></input>
+            <div class="pages-centerer">
+                <input type="text" name="pages-book-add" id="pages-book-add" class="pages">
+                </input>
+            </div>
         </div>
         <div class="read-container">
             <label for="read-book-add" class="text-before-read">Status:</label>
-            <input type="radio" name="read-book-add" id="book-not-read" class="read">not yet read</input>
-            <input type="radio" name="read-book-add" id="book-read" class="read">read</input>
+            <div class="read-centerer">
+                <div class="read-radio-container">
+                    <div class="read-button-with-text">
+                        <input type="radio" name="read-book-add" id="book-not-read" class="read-button">not yet read
+                        </input>
+                    </div>
+                    <div class="read-button-with-text">
+                        <input type="radio" name="read-book-add" id="book-read" class="read-button">read
+                        </input>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="options-container">
             <button type="button" name="submit-form" class="submit-form">Submit Book</button>

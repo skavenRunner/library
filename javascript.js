@@ -1,5 +1,5 @@
-let myLibrary = [{title:"tituloPrueba", author:"autorPrueba", pages:"123", read:"Leido"},
- {title:"tituloPrueba2", author:"autorPrueba2", pages:"1232", read:"Leido2"}];
+let myLibrary = [{title:"tituloPrueba", author:"autorPrueba", pages:"123", read:"Read"},
+ {title:"tituloPrueba2", author:"autorPrueba2", pages:"1232", read:"Not read yet"}];
 
 function book(title, author, pages, read) {
     this.title = title;
@@ -44,16 +44,41 @@ function updateBookDisplay() {
         pages.textContent = book.pages;
         read.textContent = book.read;
 
+        switch (read.textContent) {
+            case "Read":
+                read.classList.remove("negative");
+                read.classList.add("affirmative");
+                break;
+            case "Not read yet":
+                read.classList.remove("affirmative");
+                read.classList.add("negative");
+        }
+
         currentBook.dataset.id = myLibraryIterations;
         myLibraryIterations++;
 
         const deleteBookButton = currentBook.querySelector(".delete-book");
         deleteBookButton.addEventListener("click", (e) => {
-            bookToBeDeleted = e.currentTarget.parentNode;
-            bookIdToBeDeleted = bookToBeDeleted.dataset.id;
+            let bookToBeDeleted = e.currentTarget.parentNode;
+            let bookIdToBeDeleted = bookToBeDeleted.dataset.id;
             myLibrary.splice(bookIdToBeDeleted, 1);
             updateBookDisplay();
             })
+
+        const readBook = currentBook.querySelector(".read");
+        readBook.addEventListener("click", (e) => {
+            let bookToChangeReadStatus = e.currentTarget.parentNode.parentNode.parentNode;
+            let bookIdToChangeReadStatus = bookToChangeReadStatus.dataset.id;
+            let bookReadStatus = e.currentTarget.textContent;
+            switch (bookReadStatus) {
+                case "Read":
+                myLibrary[bookIdToChangeReadStatus].read = "Not read yet";
+                break;
+                case "Not read yet":
+                myLibrary[bookIdToChangeReadStatus].read = "Read";
+            }
+            updateBookDisplay();
+        })
 
         const addBook = document.querySelector(".book.add");
         grid.insertBefore(currentBook, addBook);
