@@ -28,6 +28,8 @@ function updateBookDisplay() {
         }
     });
 
+    let myLibraryIterations = 0;
+
     myLibrary.forEach(book => {
         const currentBook = sampleBook.cloneNode(true);
         currentBook.classList.remove("sample");
@@ -41,6 +43,17 @@ function updateBookDisplay() {
         author.textContent = book.author;
         pages.textContent = book.pages;
         read.textContent = book.read;
+
+        currentBook.dataset.id = myLibraryIterations;
+        myLibraryIterations++;
+
+        const deleteBookButton = currentBook.querySelector(".delete-book");
+        deleteBookButton.addEventListener("click", (e) => {
+            bookToBeDeleted = e.currentTarget.parentNode;
+            bookIdToBeDeleted = bookToBeDeleted.dataset.id;
+            myLibrary.splice(bookIdToBeDeleted, 1);
+            updateBookDisplay();
+            })
 
         const addBook = document.querySelector(".book.add");
         grid.insertBefore(currentBook, addBook);
@@ -60,8 +73,8 @@ newBookButton.addEventListener("click", () => {
     bookFormSample.classList.add("current-form");
 });
 
-const cancelForm = document.querySelector(".cancel-form");
-cancelForm.addEventListener("click", closeForm);
+const cancelFormButton = document.querySelector(".cancel-form");
+cancelFormButton.addEventListener("click", closeForm);
 
 function closeForm() {
     const currentForm = document.querySelector(".current-form");
@@ -88,4 +101,4 @@ submitForm.addEventListener("click", () => {
 
     addBookToLibrary(title.value, author.value, pages.value, readStatus);
     closeForm();
-})
+});
