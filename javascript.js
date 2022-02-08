@@ -1,5 +1,4 @@
-let myLibrary = [{title:"tituloPrueba", author:"autorPrueba", pages:"123", read:"Read"},
- {title:"tituloPrueba2", author:"autorPrueba2", pages:"1232", read:"Not read yet"}];
+let myLibrary = [];
 
 function book(title, author, pages, read) {
     this.title = title;
